@@ -1,0 +1,1 @@
+{"hello":"${body.name}", "role":"${headers.role}"}

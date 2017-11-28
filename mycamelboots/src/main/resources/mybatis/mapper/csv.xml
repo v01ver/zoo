@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fi.aapala.v01.zoo.mycamelboots.csv.dao.CsvMapper">
+
+	<select id="selecttop100" parameterType="map" resultType="map">
+		SELECT
+		TOP 10 * FROM CSVREAD('classpath:/data/csv/employee.csv', null,
+		'fieldSeparator=;')
+	</select>
+	<select id="searchByTitle" parameterType="map" resultType="map">
+		SELECT * FROM CSVREAD('classpath:/data/csv/employee.csv', null,
+		'fieldSeparator=;')
+		WHERE TITLE = #{title}
+	</select>
+
+
+</mapper>
